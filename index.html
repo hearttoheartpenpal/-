@@ -1,1 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heart to Heart Pen Pal</title>
 
+<style>
+body {
+  margin:0;
+  font-family:-apple-system, BlinkMacSystemFont, sans-serif;
+  background:#f8f6f9;
+  color:#222;
+  overflow-x:hidden;
+}
+
+header {
+  display:flex;
+  justify-content:space-between;
+  padding:20px 40px;
+  position:fixed;
+  width:100%;
+  background:rgba(248,246,249,.85);
+  backdrop-filter: blur(10px);
+}
+
+nav a {
+  margin-left:20px;
+  cursor:pointer;
+  text-decoration:none;
+  color:#444;
+  transition:.3s;
+}
+
+nav a:hover {
+  color:#ff4d88;
+}
+
+.section {
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  position:absolute;
+  width:100%;
+  transition:.6s;
+  opacity:0;
+  transform:translateX(30px);
+}
+
+.active {
+  opacity:1;
+  transform:translateX(0);
+}
+
+button {
+  padding:12px 20px;
+  border:none;
+  border-radius:20px;
+  background:#ff4d88;
+  color:white;
+  cursor:pointer;
+  transition:.3s;
+}
+
+button:hover {
+  transform:scale(1.05);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div>Heart to Heart 💗</div>
+  <nav>
+    <a onclick="showSection('home')">Home</a>
+    <a onclick="showSection('about')">About</a>
+    <a onclick="showSection('games')">Games</a>
+    <a onclick="showSection('join')">Join</a>
+  </nav>
+</header>
+
+<div id="home" class="section active">
+  <h1>Connecting Generations</h1>
+  <p>Pen pals between high school students and nursing home residents.</p>
+  <button onclick="showSection('join')">Get Involved</button>
+</div>
+
+<div id="about" class="section">
+  <h1>About the Club</h1>
+  <p>We create meaningful handwritten connections across generations.</p>
+</div>
+
+<div id="games" class="section">
+  <h1>Feeling Bored?</h1>
+  <button onclick="alert('Game coming soon 💗')">Play a Game</button>
+</div>
+
+<div id="join" class="section">
+  <h1>Join Heart to Heart</h1>
+  <p>Applications coming soon.</p>
+</div>
+
+<script>
+function showSection(id){
+  document.querySelectorAll('.section').forEach(sec=>{
+    sec.classList.remove('active');
+  });
+  document.getElementById(id).classList.add('active');
+}
+</script>
+
+</body>
+</html>
