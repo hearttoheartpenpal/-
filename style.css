@@ -1,153 +1,336 @@
 :root{
-  --pink: #fdeaf1;
+  /* Canva blush */
+  --bg: #fdeaf1;
+
+  /* dark mode: deep blackish rose */
+  --bg-dark: #1e0f17;
+
   --card: #ffffff;
-  --text: #1a1a1a;
+  --card-dark: #2a1821;
+
+  --text: #141414;
+  --text-dark: #f6edf2;
+
   --accent: #c40000;
+  --accent-dark: #ff5a86;
+
+  --shadow: 0 22px 60px rgba(0,0,0,.12);
 }
 
-*{
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+html[data-theme="dark"] body{
+  background: var(--bg-dark);
+  color: var(--text-dark);
 }
+
+*{ box-sizing:border-box; }
 
 body{
   margin:0;
-  background: var(--pink);
+  font-family:"Poppins", system-ui, -apple-system, Arial, sans-serif;
+  background: var(--bg);
   color: var(--text);
 }
 
-.frame{
-  width: 90%;
-  max-width: 1000px;
-  margin: 80px auto;
-  background: var(--card);
-  border-radius: 40px;
-  padding: 60px 40px;
-  position: relative;
-  text-align: center;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-}
-
-/* Lace border */
-.frame::before{
-  content:"";
-  position:absolute;
-  inset: 20px;
-  border: 3px dotted #ff9ec5;
-  border-radius: 30px;
-}
-
-.envelope{
-  width: 180px;
-  margin-bottom: 20px;
-}
-
-.panel{
-  background: #fff;
-  padding: 40px;
-  border-radius: 25px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-}
-
-h1{
-  font-size: 60px;
-  font-weight: 800;
-  color: var(--accent);
-  margin: 0;
-}
-
-.subtitle{
-  font-weight: 700;
-  margin-top: 10px;
-}
-
-.buttons{
-  margin-top: 30px;
-}
-
-.iconBtn{
-  margin: 0 10px;
-  padding: 12px 25px;
-  border-radius: 30px;
-  border: 1px solid #ddd;
-  background: white;
-  cursor: pointer;
-  font-weight: 600;
-  transition: 0.2s;
-}
-
-.iconBtn:hover{
-  transform: translateY(-3px);
-}
-
-/* Theme button */
-.themeToggle{
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: none;
-  background: white;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-  cursor: pointer;
-}
-
-.themeToggle img{
-  width: 35px;
-}
-
-/* Games */
-.gamesBtn{
-  position: fixed;
-  right: 30px;
-  bottom: 30px;
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-
-.gamesBtn img{
-  width: 90px;
-}
-
-/* Popup */
-.infoBox{
-  position: absolute;
-  display: none;
-  background: white;
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-  width: 300px;
-}
-
-.infoHeader{
-  display: flex;
-  justify-content: space-between;
-  font-weight: bold;
-}
-
-#closeInfo{
-  border: none;
-  background: none;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-/* Games modal */
-.gamesModal{
-  display:none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.4);
+.page{
+  min-height:100vh;
+  display:flex;
   align-items:center;
   justify-content:center;
+  padding: 42px 18px;
 }
 
-.gamesContent{
-  background:white;
-  padding:40px;
-  border-radius:30px;
+/* main white card */
+.card{
+  position:relative;
+  width: min(1020px, 92vw);
+  aspect-ratio: 16 / 9;
+  background: var(--card);
+  border-radius: 34px;
+  box-shadow: var(--shadow);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding: 56px 40px 44px;
+  overflow:hidden;
+}
+
+html[data-theme="dark"] .card{
+  background: var(--card-dark);
+}
+
+/* lace image frame (exact, like Canva) */
+.laceFrame{
+  position:absolute;
+  inset: 26px;
+  background: url("./assets/lace.png") center / 100% 100% no-repeat;
+  pointer-events:none;
+  opacity: 1;
+  z-index: 1;
+}
+
+/* envelope bigger like Canva */
+.envelope{
+  width: clamp(220px, 22vw, 320px);
+  height:auto;
+  z-index: 2;
+  margin-top: -6px;
+  margin-bottom: 10px;
+}
+
+/* title bigger */
+.title{
+  margin: 0;
+  z-index: 2;
+  font-weight: 800;
+  font-size: clamp(56px, 6vw, 92px);
+  line-height: 1.02;
+  color: var(--accent);
+  text-align:center;
+}
+
+html[data-theme="dark"] .title{
+  color: var(--accent-dark);
+}
+
+/* subtitle bigger */
+.subtitle{
+  z-index: 2;
+  font-weight: 800;
+  font-size: clamp(18px, 2.1vw, 26px);
+  margin-top: 10px;
+  margin-bottom: 22px;
+  opacity: .95;
+  text-align:center;
+}
+
+/* menu icons like Canva (icon + text under) */
+.menu{
+  z-index: 2;
+  display:flex;
+  gap: clamp(40px, 6vw, 90px);
+  align-items:flex-end;
+  justify-content:center;
+  margin-top: 8px;
+}
+
+.menuItem{
+  border: none;
+  background: transparent;
+  cursor:pointer;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap: 10px;
+  padding: 10px 10px;
+  border-radius: 18px;
+  transition: transform .18s ease;
+}
+
+.menuItem:hover{
+  transform: translateY(-4px);
+}
+
+.menuItem img{
+  width: clamp(56px, 6vw, 80px);
+  height:auto;
+}
+
+.label{
+  font-weight: 800;
+  font-size: 18px;
+}
+
+/* top-left theme icon (no circle) */
+.themeIconBtn{
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  border:none;
+  background: transparent;
+  padding: 0;
+  cursor:pointer;
+  z-index: 50;
+}
+
+.themeIconBtn img{
+  width: 64px;
+  height:auto;
+}
+
+/* games bottom-left (heart + label under) */
+.gamesCorner{
+  position:absolute;
+  left: 32px;
+  bottom: 26px;
+  border:none;
+  background: transparent;
+  cursor:pointer;
+  z-index: 3;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap: 6px;
+  transform-origin: center;
+  transition: transform .18s ease;
+}
+
+.gamesCorner:hover{
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* cute bounce */
+.gamesCorner:active{
+  transform: translateY(-2px) scale(0.98);
+}
+
+.gamesCorner img{
+  width: 96px;
+  height:auto;
+}
+
+.gamesText{
+  font-weight: 800;
+  font-size: 18px;
+}
+
+/* popover (appears above clicked icon) */
+.popover{
+  position:absolute;
+  z-index: 10;
+  width: min(420px, 86vw);
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 20px 55px rgba(0,0,0,.18);
+  padding: 12px 12px 14px;
+  display:none;
+}
+
+html[data-theme="dark"] .popover{
+  background: #2b1a23;
+  color: var(--text-dark);
+}
+
+.popTop{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap: 10px;
+}
+
+.popTitle{
+  font-weight: 800;
+}
+
+.popClose{
+  border:none;
+  background: rgba(0,0,0,.06);
+  border-radius: 12px;
+  padding: 6px 10px;
+  cursor:pointer;
+  font-weight: 800;
+}
+
+html[data-theme="dark"] .popClose{
+  background: rgba(255,255,255,.10);
+  color: var(--text-dark);
+}
+
+.popBody{
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.45;
+  opacity: .9;
+}
+
+/* little arrow */
+.popArrow{
+  position:absolute;
+  bottom:-9px;
+  width: 16px;
+  height: 16px;
+  background: inherit;
+  transform: rotate(45deg);
+  left: 50%;
+}
+
+/* modal */
+.modalOverlay{
+  position:fixed;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  background: rgba(0,0,0,.35);
+  backdrop-filter: blur(6px);
+  z-index: 60;
+  padding: 18px;
+}
+
+.modal{
+  width:min(640px, 92vw);
+  background: #ffffff;
+  border-radius: 22px;
+  box-shadow: 0 22px 70px rgba(0,0,0,.35);
+  padding: 14px;
+}
+
+html[data-theme="dark"] .modal{
+  background: #2b1a23;
+  color: var(--text-dark);
+}
+
+.modalTop{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding: 6px 6px 10px;
+}
+
+.modalTitle{
+  font-weight: 800;
+}
+
+.modalClose{
+  border:none;
+  background: rgba(0,0,0,.06);
+  border-radius: 12px;
+  padding: 6px 10px;
+  cursor:pointer;
+  font-weight: 800;
+}
+
+html[data-theme="dark"] .modalClose{
+  background: rgba(255,255,255,.10);
+  color: var(--text-dark);
+}
+
+.modalBody{
+  padding: 6px;
+  display:grid;
+  gap: 10px;
+}
+
+.gameBtn{
+  border: 1px solid rgba(0,0,0,.12);
+  background: transparent;
+  border-radius: 16px;
+  padding: 12px 14px;
+  font-weight: 800;
+  cursor:pointer;
+}
+
+html[data-theme="dark"] .gameBtn{
+  border: 1px solid rgba(255,255,255,.14);
+}
+
+.gameArea{
+  border: 1px dashed rgba(0,0,0,.18);
+  border-radius: 18px;
+  padding: 14px;
+  opacity: .9;
+}
+
+html[data-theme="dark"] .gameArea{
+  border: 1px dashed rgba(255,255,255,.20);
 }
