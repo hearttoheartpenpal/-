@@ -1,3 +1,239 @@
-body {
-  background: red;
+:root{
+  --bg: #f7e7ef;
+  --card: #ffffff;
+  --text: #1f1f1f;
+  --accent: #c40000;
+  --shadow: 0 18px 50px rgba(0,0,0,.12);
+  --stroke: rgba(0,0,0,.10);
+}
+
+[data-theme="dark"]{
+  --bg: #17141a;
+  --card: #241f26;
+  --text: #f4f0f5;
+  --accent: #ff5b7a;
+  --shadow: 0 18px 55px rgba(0,0,0,.45);
+  --stroke: rgba(255,255,255,.10);
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  font-family:"Poppins", system-ui, -apple-system, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height:100vh;
+}
+
+.container{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 40px 18px;
+  position:relative;
+}
+
+.card{
+  width:min(920px, 92vw);
+  background: var(--card);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--stroke);
+  text-align:center;
+  padding: 52px 26px 44px;
+  position:relative;
+}
+
+/* Lace frame */
+.card::before{
+  content:"";
+  position:absolute;
+  inset: 16px;
+  border-radius: 22px;
+
+  /* Fallback lace-ish look */
+  outline: 3px dotted rgba(255, 170, 200, .95);
+  outline-offset: 10px;
+
+  /* If you upload assets/lace.png, it will appear too */
+  background-image: url("./assets/lace.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+
+  pointer-events:none;
+  opacity: .95;
+}
+
+.envelope{
+  width: 170px;
+  height:auto;
+  display:block;
+  margin: 0 auto 12px;
+  position:relative;
+  z-index:1;
+}
+
+.title{
+  margin: 0;
+  font-weight: 800;
+  font-size: clamp(40px, 5vw, 70px);
+  color: var(--accent);
+  letter-spacing:.2px;
+  position:relative;
+  z-index:1;
+}
+
+.subtitle{
+  margin-top: 6px;
+  font-weight: 800;
+  position:relative;
+  z-index:1;
+}
+
+.buttonRow{
+  margin-top: 34px;
+  display:flex;
+  justify-content:center;
+  gap: 18px;
+  flex-wrap:wrap;
+  position:relative;
+  z-index:1;
+}
+
+.iconButton{
+  border: 1px solid var(--stroke);
+  background: transparent;
+  color: var(--text);
+  padding: 12px 18px;
+  border-radius: 999px;
+  cursor:pointer;
+  font-weight: 700;
+  transition: transform .18s ease, background .18s ease;
+}
+
+.iconButton:hover{
+  transform: translateY(-2px);
+  background: rgba(0,0,0,.04);
+}
+
+[data-theme="dark"] .iconButton:hover{
+  background: rgba(255,255,255,.06);
+}
+
+/* Info panel (we’ll position it above clicked button via JS) */
+.infoPanel{
+  position:absolute;
+  left:50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: min(420px, 88vw);
+  background: var(--card);
+  border: 1px solid var(--stroke);
+  border-radius: 18px;
+  box-shadow: 0 18px 45px rgba(0,0,0,.18);
+  padding: 12px 12px 14px;
+  display:none;
+  z-index: 20;
+}
+
+.panelHeader{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap: 10px;
+  font-weight: 800;
+}
+
+.panelContent{
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.45;
+  opacity: .85;
+}
+
+.closeBtn{
+  border:none;
+  background: rgba(0,0,0,.06);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 6px 10px;
+  cursor:pointer;
+  font-weight: 800;
+}
+
+[data-theme="dark"] .closeBtn{
+  background: rgba(255,255,255,.10);
+}
+
+/* Theme toggle top-left */
+.themeToggle{
+  position:fixed;
+  top: 18px;
+  left: 18px;
+  width: 54px;
+  height: 54px;
+  border-radius: 999px;
+  border: 1px solid var(--stroke);
+  background: rgba(255,255,255,.6);
+  backdrop-filter: blur(10px);
+  cursor:pointer;
+  display:grid;
+  place-items:center;
+  z-index: 60;
+}
+
+[data-theme="dark"] .themeToggle{
+  background: rgba(20,18,22,.55);
+}
+
+.themeToggle img{
+  width: 28px;
+  height: 28px;
+}
+
+/* Bottom-right games heart */
+.gamesButton{
+  position:fixed;
+  right: 22px;
+  bottom: 22px;
+  border:none;
+  background: transparent;
+  cursor:pointer;
+  transition: transform .18s ease;
+  z-index: 60;
+}
+
+.gamesButton:hover{
+  transform: translateY(-3px);
+}
+
+.gamesButton img{
+  width: 90px;
+  height:auto;
+}
+
+/* Games modal */
+.gamesModal{
+  position:fixed;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding: 18px;
+  background: rgba(0,0,0,.35);
+  backdrop-filter: blur(6px);
+  z-index: 80;
+}
+
+.gamesContent{
+  width:min(560px, 92vw);
+  background: var(--card);
+  border: 1px solid var(--stroke);
+  border-radius: 22px;
+  padding: 16px;
+  box-shadow: 0 18px 55px rgba(0,0,0,.25);
+  text-align:left;
 }
