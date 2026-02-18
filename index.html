@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Heart to Heart — Penpal Program</title>
 
-  <!-- Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
@@ -14,75 +13,55 @@
 </head>
 
 <body>
-  <!-- Top-left theme icon (no box/circle) -->
+  <!-- Sun/Moon (no circle/box) -->
   <button class="themeBtn" id="themeBtn" type="button" aria-label="Toggle theme">
     <img id="themeIcon" src="./assets/sun.png" alt="Theme">
   </button>
 
-  <main class="page">
-    <section class="card" aria-label="Heart to Heart home">
-      <!-- Lace frame image -->
-      <div class="lace" aria-hidden="true"></div>
+  <!-- This is the MAIN Canva lace rectangle -->
+  <main class="laceStage">
+    <section class="laceBox" aria-label="Heart to Heart home">
+      <img class="envelope" src="./assets/envelope.png" alt="Envelope" />
 
-      <!-- Envelope -->
-      <img class="envelope" src="./assets/envelope.png" alt="Envelope">
-
-      <!-- Title -->
       <h1 class="title">Heart to Heart</h1>
       <div class="subtitle">—Penpal Program—</div>
 
-      <!-- Menu icons -->
-      <div class="menu" id="menu">
-        <button class="menuItem" type="button" data-key="about">
+      <div class="menu">
+        <button class="menuItem" type="button">
           <img src="./assets/about.png" alt="About">
           <div class="menuLabel">About</div>
         </button>
 
-        <button class="menuItem" type="button" data-key="rules">
+        <button class="menuItem" type="button">
           <img src="./assets/rules.png" alt="Rules">
           <div class="menuLabel">Rules</div>
         </button>
 
-        <button class="menuItem" type="button" data-key="contact">
+        <button class="menuItem" type="button">
           <img src="./assets/contact.png" alt="Contact">
           <div class="menuLabel">Contact</div>
         </button>
       </div>
 
-      <!-- About/Rules/Contact popup -->
-      <div class="pop" id="infoPop" aria-hidden="true">
-        <div class="popTop">
-          <div class="popTitle" id="popTitle">Title</div>
-          <button class="popX" id="popX" type="button" aria-label="Close">✕</button>
-        </div>
-        <div class="popBody" id="popBody"></div>
-        <div class="popArrow" id="popArrow" aria-hidden="true"></div>
-      </div>
-
-      <!-- Games bottom-left -->
-      <button class="gamesCorner" id="gamesBtn" type="button">
-        <img src="./assets/games.png" alt="Games">
+      <!-- Games (bottom-right like Canva) -->
+      <div class="gamesWrap">
+        <button class="gamesBtn" id="gamesBtn" type="button" aria-label="Games">
+          <img src="./assets/games.png" alt="Games">
+        </button>
         <div class="gamesLabel">Games</div>
-      </button>
+      </div>
     </section>
   </main>
 
-  <!-- Games popup / modal (square) -->
+  <!-- Games popup later: for now it just opens a placeholder box -->
   <div class="overlay" id="overlay" aria-hidden="true">
     <div class="modal" role="dialog" aria-modal="true" aria-label="Games">
       <div class="modalTop">
         <div class="modalTitle">Games</div>
         <button class="modalX" id="modalX" type="button" aria-label="Close">✕</button>
       </div>
-
-      <div class="modalGrid">
-        <button class="gameBtn" type="button">Tic Tac Toe (soon)</button>
-        <button class="gameBtn" type="button">Rock Paper Scissors (soon)</button>
-        <button class="gameBtn" type="button">More soon 💗</button>
-      </div>
-
-      <div class="modalNote">
-        We’ll code these games next — this is just the pop-up layout.
+      <div class="modalBody">
+        Options will go here (we’ll code the games next).
       </div>
     </div>
   </div>
