@@ -1,116 +1,93 @@
-<!DOCTYPE html>
-<html>
+<link rel="stylesheet" href="style.css">
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Heart to Heart Pen Pal</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Heart to Heart — Penpal Program</title>
 
-<style>
-body {
-  margin:0;
-  font-family:-apple-system, BlinkMacSystemFont, sans-serif;
-  background:#f8f6f9;
-  color:#222;
-  overflow-x:hidden;
-}
+  <!-- Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-header {
-  display:flex;
-  justify-content:space-between;
-  padding:20px 40px;
-  position:fixed;
-  width:100%;
-  background:rgba(248,246,249,.85);
-  backdrop-filter: blur(10px);
-}
-
-nav a {
-  margin-left:20px;
-  cursor:pointer;
-  text-decoration:none;
-  color:#444;
-  transition:.3s;
-}
-
-nav a:hover {
-  color:#ff4d88;
-}
-
-.section {
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-  position:absolute;
-  width:100%;
-  transition:.6s;
-  opacity:0;
-  transform:translateX(30px);
-}
-
-.active {
-  opacity:1;
-  transform:translateX(0);
-}
-
-button {
-  padding:12px 20px;
-  border:none;
-  border-radius:20px;
-  background:#ff4d88;
-  color:white;
-  cursor:pointer;
-  transition:.3s;
-}
-
-button:hover {
-  transform:scale(1.05);
-}
-</style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+  <!-- Light/Dark toggle (same position; star/moon swaps) -->
+  <button class="themeToggle" id="themeToggle" aria-label="Toggle light/dark mode">
+    <img id="themeIcon" src="assets/star.png" alt="Theme icon" />
+  </button>
 
-<header>
-  <div>Heart to Heart 💗</div>
-  <nav>
-    <a onclick="showSection('home')">Home</a>
-    <a onclick="showSection('about')">About</a>
-    <a onclick="showSection('games')">Games</a>
-    <a onclick="showSection('join')">Join</a>
-  </nav>
-</header>
+  <main class="page">
+    <section class="card">
+      <div class="cardInner lace">
+        <!-- Envelope image -->
+        <img class="envelope" src="assets/envelope.png" alt="Envelope" />
 
-<div id="home" class="section active">
-  <h1>Connecting Generations</h1>
-  <p>Pen pals between high school students and nursing home residents.</p>
-  <button onclick="showSection('join')">Get Involved</button>
-</div>
+        <!-- Title + subtitle (bold) -->
+        <h1 class="title">Heart to Heart</h1>
+        <div class="subtitle">—Penpal Program—</div>
 
-<div id="about" class="section">
-  <h1>About the Club</h1>
-  <p>We create meaningful handwritten connections across generations.</p>
-</div>
+        <!-- Icon buttons row -->
+        <div class="iconRow" id="iconRow">
+          <button class="iconBtn" data-panel="about" aria-haspopup="dialog">
+            <div class="iconCircle">i</div>
+            <div class="iconLabel">About</div>
+          </button>
 
-<div id="games" class="section">
-  <h1>Feeling Bored?</h1>
-  <button onclick="alert('Game coming soon 💗')">Play a Game</button>
-</div>
+          <button class="iconBtn" data-panel="rules" aria-haspopup="dialog">
+            <div class="iconCircle">✉️</div>
+            <div class="iconLabel">Rules</div>
+          </button>
 
-<div id="join" class="section">
-  <h1>Join Heart to Heart</h1>
-  <p>Applications coming soon.</p>
-</div>
+          <button class="iconBtn" data-panel="contact" aria-haspopup="dialog">
+            <div class="iconCircle">@</div>
+            <div class="iconLabel">Contact</div>
+          </button>
 
-<script>
-function showSection(id){
-  document.querySelectorAll('.section').forEach(sec=>{
-    sec.classList.remove('active');
-  });
-  document.getElementById(id).classList.add('active');
-}
-</script>
+          <!-- Popover that appears above the clicked icon -->
+          <div class="popover" id="popover" role="dialog" aria-modal="false" aria-hidden="true">
+            <div class="popoverTop">
+              <div class="popoverTitle" id="popoverTitle">Title</div>
+              <button class="popoverClose" id="popoverClose" aria-label="Close">✕</button>
+            </div>
+            <div class="popoverBody" id="popoverBody"></div>
+            <div class="popoverArrow" id="popoverArrow" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
 
+      <!-- Bottom-right heart button opens Games -->
+      <button class="gamesBtn" id="gamesBtn" aria-haspopup="dialog">
+        <img src="assets/heart-games.png" alt="Games" />
+        <div class="gamesLabel">Games</div>
+      </button>
+    </section>
+  </main>
+
+  <!-- Games modal -->
+  <div class="modalOverlay" id="modalOverlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="Games">
+      <div class="modalTop">
+        <div class="modalTitle">Games</div>
+        <button class="modalClose" id="modalClose" aria-label="Close">✕</button>
+      </div>
+
+      <div class="gameGrid">
+        <button class="gameCard" data-game="ttt">Tic Tac Toe</button>
+        <button class="gameCard" data-game="rps">Rock Paper Scissors</button>
+        <button class="gameCard" data-game="more">More soon 💗</button>
+      </div>
+
+      <div class="gameArea" id="gameArea">
+        <div class="hint">Pick a game above.</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
+<link rel="stylesheet" href="style.css">
