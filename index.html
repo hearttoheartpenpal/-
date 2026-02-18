@@ -1,95 +1,77 @@
-<head>
-  ...
-  <link rel="stylesheet" href="style.css">
-</head><!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Heart to Heart — Penpal Program</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heart to Heart — Penpal Program</title>
 
-  <!-- Poppins -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<!-- Poppins Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-  <!-- Light/Dark toggle (same position; star/moon swaps) -->
-  <button class="themeToggle" id="themeToggle" aria-label="Toggle light/dark mode">
-    <img id="themeIcon" src="assets/star.png" alt="Theme icon" />
-  </button>
 
-  <main class="page">
-    <section class="card">
-      <div class="cardInner lace">
-        <!-- Envelope image -->
-        <img class="envelope" src="assets/envelope.png" alt="Envelope" />
+<!-- Theme Toggle -->
+<button id="themeToggle" class="themeToggle">
+  <img id="themeIcon" src="./assets/Star.png" alt="Theme Icon">
+</button>
 
-        <!-- Title + subtitle (bold) -->
-        <h1 class="title">Heart to Heart</h1>
-        <div class="subtitle">—Penpal Program—</div>
+<div class="container">
 
-        <!-- Icon buttons row -->
-        <div class="iconRow" id="iconRow">
-          <button class="iconBtn" data-panel="about" aria-haspopup="dialog">
-            <div class="iconCircle">i</div>
-            <div class="iconLabel">About</div>
-          </button>
+  <div class="card">
 
-          <button class="iconBtn" data-panel="rules" aria-haspopup="dialog">
-            <div class="iconCircle">✉️</div>
-            <div class="iconLabel">Rules</div>
-          </button>
+    <img src="./assets/envelope.png" class="envelope" alt="Envelope">
 
-          <button class="iconBtn" data-panel="contact" aria-haspopup="dialog">
-            <div class="iconCircle">@</div>
-            <div class="iconLabel">Contact</div>
-          </button>
+    <h1 class="title">Heart to Heart</h1>
+    <div class="subtitle">—Penpal Program—</div>
 
-          <!-- Popover that appears above the clicked icon -->
-          <div class="popover" id="popover" role="dialog" aria-modal="false" aria-hidden="true">
-            <div class="popoverTop">
-              <div class="popoverTitle" id="popoverTitle">Title</div>
-              <button class="popoverClose" id="popoverClose" aria-label="Close">✕</button>
-            </div>
-            <div class="popoverBody" id="popoverBody"></div>
-            <div class="popoverArrow" id="popoverArrow" aria-hidden="true"></div>
-          </div>
-        </div>
-      </div>
+    <div class="buttonRow">
 
-      <!-- Bottom-right heart button opens Games -->
-      <button class="gamesBtn" id="gamesBtn" aria-haspopup="dialog">
-        <img src="assets/heart-games.png" alt="Games" />
-        <div class="gamesLabel">Games</div>
+      <button class="iconButton" onclick="openPanel('about')">
+        About
       </button>
-    </section>
-  </main>
 
-  <!-- Games modal -->
-  <div class="modalOverlay" id="modalOverlay" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-label="Games">
-      <div class="modalTop">
-        <div class="modalTitle">Games</div>
-        <button class="modalClose" id="modalClose" aria-label="Close">✕</button>
-      </div>
+      <button class="iconButton" onclick="openPanel('rules')">
+        Rules
+      </button>
 
-      <div class="gameGrid">
-        <button class="gameCard" data-game="ttt">Tic Tac Toe</button>
-        <button class="gameCard" data-game="rps">Rock Paper Scissors</button>
-        <button class="gameCard" data-game="more">More soon 💗</button>
-      </div>
+      <button class="iconButton" onclick="openPanel('contact')">
+        Contact
+      </button>
 
-      <div class="gameArea" id="gameArea">
-        <div class="hint">Pick a game above.</div>
-      </div>
     </div>
+
+    <!-- Info Panel -->
+    <div id="infoPanel" class="infoPanel">
+      <div class="panelHeader">
+        <span id="panelTitle"></span>
+        <button onclick="closePanel()" class="closeBtn">✕</button>
+      </div>
+      <div id="panelContent" class="panelContent"></div>
+    </div>
+
   </div>
 
-  <script src="script.js"></script>
+  <!-- Games Button Bottom Right -->
+  <button class="gamesButton" onclick="openGames()">
+    <img src="./assets/games.png" alt="Games">
+  </button>
+
+</div>
+
+<!-- Games Modal -->
+<div id="gamesModal" class="gamesModal">
+  <div class="gamesContent">
+    <button class="closeBtn" onclick="closeGames()">✕</button>
+    <h2>Games</h2>
+    <p>Games coming soon 💗</p>
+  </div>
+</div>
+
+<script src="./script.js"></script>
 </body>
 </html>
-<link rel="stylesheet" href="style.css">
