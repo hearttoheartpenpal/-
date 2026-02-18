@@ -1,103 +1,85 @@
-/* Stop images from blowing up */
 img{ max-width:100%; height:auto; display:block; }
+*{ box-sizing:border-box; }
 
 :root{
   /* Canva blush */
-  --bgLight: #fdeaf1;
+  --bgLight:#fdeaf1;
+  /* deep blackish rose */
+  --bgDark:#1e0f17;
 
-  /* Deep blackish rose */
-  --bgDark: #1e0f17;
+  --shadow: 0 26px 70px rgba(0,0,0,.14);
 
-  --textLight: #161616;
-  --textDark: #f7eef3;
+  --accentLight:#c40000;
+  --accentDark:#ff5a86;
 
-  --accentLight: #c40000;
-  --accentDark: #ff5a86;
+  --textLight:#161616;
+  --textDark:#f7eef3;
 }
 
-html[data-theme="light"] body{
-  background: var(--bgLight);
-  color: var(--textLight);
-}
+html[data-theme="light"] body{ background: var(--bgLight); color: var(--textLight); }
+html[data-theme="dark"]  body{ background: var(--bgDark);  color: var(--textDark);  }
 
-html[data-theme="dark"] body{
-  background: var(--bgDark);
-  color: var(--textDark);
-}
-
-*{ box-sizing:border-box; }
 body{
   margin:0;
   font-family:"Poppins", system-ui, -apple-system, Arial, sans-serif;
 }
 
-/* Center the lace rectangle like Canva */
-.laceStage{
+/* center the rectangle like Canva */
+.stage{
   min-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding: 40px 18px;
+  padding: 42px 18px;
 }
 
-/* This is the MAIN white rectangle */
-.laceBox{
-  width: min(1100px, 94vw);
+/* THIS is the Canva white rectangle */
+.whiteRect{
+  width: min(1200px, 94vw);
   aspect-ratio: 16 / 9;
-
-  /* IMPORTANT: lace.png should be the Canva lace rectangle */
-  background: url("./assets/lace.png") center / 100% 100% no-repeat;
-
-  /* If lace.png is only the border and transparent inside, this keeps it white */
-  background-color: #ffffff;
-
+  background:#ffffff;
+  border-radius: 14px;         /* Canva rectangle is not super rounded */
+  box-shadow: var(--shadow);
   position:relative;
+
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
 
-  /* subtle shadow like Canva */
-  filter: drop-shadow(0 22px 55px rgba(0,0,0,.12));
+  padding: 60px 40px 54px;
 }
 
-/* In dark mode, DO NOT change laceBox.
-   That keeps your white lace rectangle identical. */
-html[data-theme="dark"] .laceBox{
-  background-color:#ffffff;
-}
-
-/* Envelope bigger like Canva */
+/* envelope bigger */
 .envelope{
-  width: clamp(280px, 25vw, 420px);
-  margin-bottom: 12px;
+  width: clamp(340px, 28vw, 520px);
+  margin-bottom: 8px;
 }
 
-/* Title bigger */
+/* title bigger */
 .title{
   margin:0;
   font-weight:800;
-  font-size: clamp(70px, 6.5vw, 110px);
+  font-size: clamp(78px, 7vw, 124px);
   line-height:1.02;
   text-align:center;
 }
-
 html[data-theme="light"] .title{ color: var(--accentLight); }
 html[data-theme="dark"]  .title{ color: var(--accentDark); }
 
-/* Subtitle bigger */
 .subtitle{
   margin-top: 10px;
   font-weight:800;
-  font-size: clamp(22px, 2.4vw, 32px);
+  font-size: clamp(24px, 2.6vw, 36px);
   opacity:.95;
+  text-align:center;
 }
 
-/* Icon row (no popups yet) */
+/* icons WAY bigger */
 .menu{
-  margin-top: 34px;
+  margin-top: 40px;
   display:flex;
-  gap: clamp(52px, 6vw, 110px);
+  gap: clamp(70px, 7vw, 140px);
   align-items:flex-end;
   justify-content:center;
 }
@@ -109,48 +91,28 @@ html[data-theme="dark"]  .title{ color: var(--accentDark); }
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap: 10px;
-  padding: 10px 12px;
+  gap: 14px;
+  padding: 10px 14px;
 }
 
 .menuItem img{
-  width: clamp(68px, 6.2vw, 92px);
+  width: clamp(92px, 7.5vw, 130px);
 }
 
 .menuLabel{
   font-weight:800;
-  font-size:18px;
+  font-size: 22px;
 }
 
-/* Sun/Moon icon top-left: NO grey square */
-.themeBtn{
-  position:fixed;
-  top: 22px;
-  left: 22px;
-  border:none;
-  background:transparent;
-  padding:0;
-  margin:0;
-  cursor:pointer;
-  z-index: 60;
-  appearance:none;
-  -webkit-appearance:none;
-  outline:none;
-}
-.themeBtn img{
-  width: 70px;
-  height:auto;
-}
-
-/* Games bottom-right like Canva */
+/* games on right side like Canva */
 .gamesWrap{
   position:absolute;
-  right: 48px;
-  bottom: 38px;
+  right: 54px;
+  bottom: 44px;
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .gamesBtn{
@@ -159,18 +121,43 @@ html[data-theme="dark"]  .title{ color: var(--accentDark); }
   cursor:pointer;
   transition: transform .18s ease;
 }
-.gamesBtn:hover{
-  transform: translateY(-4px) scale(1.02);
-}
-.gamesBtn img{
-  width: 110px;
-}
-.gamesLabel{
-  font-weight:800;
-  font-size:18px;
+.gamesBtn:hover{ transform: translateY(-5px) scale(1.02); }
+.gamesBtn img{ width: 150px; }
+.gamesLabel{ font-weight:800; font-size: 22px; }
+
+/* theme icon + label top-left (bigger) */
+.themeWrap{
+  position:fixed;
+  top: 22px;
+  left: 22px;
+  z-index: 80;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap: 6px;
 }
 
-/* Games popup placeholder (we’ll replace later with real options/game UI) */
+.themeBtn{
+  border:none;
+  background:transparent;
+  padding:0;
+  margin:0;
+  cursor:pointer;
+  appearance:none;
+  -webkit-appearance:none;
+  outline:none;
+}
+.themeBtn img{
+  width: 96px;  /* bigger sun/moon */
+}
+
+.themeLabel{
+  font-weight:800;
+  font-size: 16px;
+  opacity:.9;
+}
+
+/* modal placeholder */
 .overlay{
   position:fixed;
   inset:0;
@@ -182,6 +169,7 @@ html[data-theme="dark"]  .title{ color: var(--accentDark); }
   backdrop-filter: blur(6px);
   z-index: 90;
 }
+
 .modal{
   width:min(560px, 92vw);
   background:#fff;
@@ -189,12 +177,14 @@ html[data-theme="dark"]  .title{ color: var(--accentDark); }
   box-shadow: 0 22px 70px rgba(0,0,0,.35);
   padding: 14px;
 }
+
 .modalTop{
   display:flex;
   align-items:center;
   justify-content:space-between;
   padding: 6px 6px 10px;
 }
+
 .modalTitle{ font-weight:800; }
 .modalX{
   border:none;
