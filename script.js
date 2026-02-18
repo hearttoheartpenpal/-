@@ -1,10 +1,11 @@
-// Theme toggle
 const themeBtn = document.getElementById("themeBtn");
 const themeIcon = document.getElementById("themeIcon");
+const themeLabel = document.getElementById("themeLabel");
 
 function setTheme(theme){
   document.documentElement.setAttribute("data-theme", theme);
   themeIcon.src = theme === "dark" ? "./assets/moon.png" : "./assets/sun.png";
+  themeLabel.textContent = theme === "dark" ? "Dark" : "Light";
   localStorage.setItem("h2h-theme", theme);
 }
 
