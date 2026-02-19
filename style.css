@@ -1,28 +1,26 @@
 *{ box-sizing:border-box; }
 html, body{ height:100%; }
-
 body{
   margin:0;
   font-family:"Poppins", system-ui, -apple-system, Arial, sans-serif;
   overflow-x:hidden;
 }
-
 img{ display:block; max-width:100%; height:auto; }
 
 :root{
-  --blush: #fdeaf1;            /* blush pink */
-  --darkRose: #1e0f17;         /* deep blackish rose */
+  --blush: #fdeaf1;
+  --darkRose: #1e0f17;
   --card: #ffffff;
   --titleRed: #c40000;
   --text: #111111;
   --shadow: 0 26px 70px rgba(0,0,0,.14);
 }
 
-/* background only (NO font-color changes) */
+/* background only */
 html[data-theme="light"] body{ background: var(--blush); }
 html[data-theme="dark"]  body{ background: var(--darkRose); }
 
-/* ===== Top-left toggle ===== */
+/* ===== TOP LEFT THEME ===== */
 .themeWrap{
   position:fixed;
   top:22px;
@@ -31,7 +29,7 @@ html[data-theme="dark"]  body{ background: var(--darkRose); }
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:8px;              /* same sun/moon spacing */
+  gap:8px;
   user-select:none;
 }
 
@@ -43,16 +41,17 @@ html[data-theme="dark"]  body{ background: var(--darkRose); }
   cursor:pointer;
 }
 
+/* moon size (default) */
 .themeBtn img{
-  width:86px;           /* default (moon size) */
+  width:96px;
   height:auto;
   transition:transform .15s ease;
 }
 .themeBtn:hover img{ transform: translateY(-2px); }
 
-/* Sun slightly bigger than moon */
-html[data-theme="light"] .themeBtn img{ width:96px; }
-html[data-theme="dark"]  .themeBtn img{ width:86px; }
+/* sun bigger */
+html[data-theme="light"] .themeBtn img{ width:132px; }
+html[data-theme="dark"]  .themeBtn img{ width:96px; }
 
 .themeLabel{
   font-weight:800;
@@ -64,49 +63,50 @@ html[data-theme="dark"]  .themeBtn img{ width:86px; }
   backdrop-filter: blur(6px);
 }
 
-/* ===== Main layout (bottom-heavy) ===== */
+/* ===== MAIN LAYOUT ===== */
 .stage{
   min-height:100vh;
   display:flex;
   justify-content:center;
-  align-items:flex-end;
+  align-items:flex-end;     /* bottom-heavy */
   padding: 60px 18px 86px;
 }
 
 .shell{
   width:min(1200px, 94vw);
   position:relative;
-  padding-top: 24px;
+  padding-top: 18px;
 }
 
-/* Envelope */
+/* envelope moved UP */
 .envelope{
-  width: clamp(420px, 36vw, 640px);
+  width: clamp(440px, 38vw, 660px);
   margin: 0 auto;
   position:relative;
   z-index:3;
-  transform: translateY(-18px);
+  transform: translateY(-36px);
 }
 
-/* ONE white card (moved UP + more horizontal) */
+/* white card moved UP to touch mid-envelope */
 .card{
-  width: min(980px, 90vw);
-  margin: -175px auto 0;   /* <-- moved up more */
+  width: min(1120px, 92vw);
+  margin: -270px auto 0;
   background: var(--card);
   border-radius: 14px;
   box-shadow: var(--shadow);
   position:relative;
   z-index:2;
   text-align:center;
-  padding: 110px 56px 70px;
+
+  /* content starts under envelope */
+  padding: 160px 56px 90px;
 }
 
-/* Title + subtitle */
 .title{
-  margin: -6px 0 0;
+  margin: -10px 0 0;
   font-weight:800;
   color: var(--titleRed);
-  font-size: clamp(84px, 7.2vw, 132px);
+  font-size: clamp(88px, 7.2vw, 138px);
   line-height: 1.0;
 }
 
@@ -118,14 +118,14 @@ html[data-theme="dark"]  .themeBtn img{ width:86px; }
   opacity: .9;
 }
 
-/* Icons: same size, one straight row */
+/* ===== ICONS: BIG + PERFECTLY ALIGNED ===== */
 .iconRow{
-  margin: 46px auto 0;
+  margin: 44px auto 0;
+  width: min(1040px, 94%);
   display:flex;
-  justify-content:space-between;
-  align-items:flex-end;
-  gap: 24px;
-  width: min(820px, 92%);
+  justify-content: space-between;
+  align-items: flex-start;     /* fixes uneven icon bottoms */
+  gap: 34px;
   flex-wrap: nowrap;
 }
 
@@ -133,10 +133,13 @@ html[data-theme="dark"]  .themeBtn img{ width:86px; }
   border:none;
   background:transparent;
   cursor:pointer;
+
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap: 12px;
+
+  width: 300px;               /* equal columns = straight alignment */
+  gap: 14px;
   padding: 8px 10px;
   border-radius: 16px;
   transition: transform .18s ease;
@@ -144,18 +147,18 @@ html[data-theme="dark"]  .themeBtn img{ width:86px; }
 .iconBtn:hover{ transform: translateY(-4px); }
 
 .iconImg{
-  height: 165px;   /* <-- bigger icons */
+  height: 245px;              /* VERY BIG click targets */
   width: auto;
   object-fit: contain;
 }
 
 .iconLabel{
   font-weight:800;
-  font-size: 14px; /* smaller labels */
+  font-size: 14px;
   color: var(--text);
 }
 
-/* ===== Games fixed bottom-right of WEBSITE (pink area) ===== */
+/* ===== GAMES: WAY SMALLER, FIXED ON PINK ===== */
 .gamesFixed{
   position:fixed;
   right: 26px;
@@ -176,9 +179,8 @@ html[data-theme="dark"]  .themeBtn img{ width:86px; }
 }
 .gamesBtn:hover{ transform: translateY(-4px); }
 
-/* WAY smaller games icon */
 .gamesImg{
-  width: 70px;
+  width: 58px;               /* WAYYYY smaller */
   height:auto;
 }
 
@@ -192,29 +194,24 @@ html[data-theme="dark"]  .themeBtn img{ width:86px; }
   backdrop-filter: blur(6px);
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 900px){
-  html[data-theme="light"] .themeBtn img{ width:88px; }
-  html[data-theme="dark"]  .themeBtn img{ width:78px; }
-
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1100px){
   .card{
-    padding: 100px 18px 64px;
-    margin-top: -160px;
+    padding: 150px 22px 90px;
+    margin-top: -250px;
   }
-
   .iconRow{
-    width: min(680px, 96%);
-    gap: 16px;
+    width: min(900px, 96%);
+    gap: 18px;
   }
-
-  .iconImg{ height: 140px; }
-  .gamesImg{ width: 62px; }
+  .iconBtn{ width: 260px; }
+  .iconImg{ height: 210px; }
 }
 
-@media (max-width: 640px){
+@media (max-width: 850px){
   .iconRow{
     flex-wrap: wrap;
     justify-content:center;
-    gap: 28px;
   }
+  .iconBtn{ width: 280px; }
 }
