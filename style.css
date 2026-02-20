@@ -145,7 +145,7 @@ html[data-theme="dark"]  .themeBtn img{ width:132px; }
 .iconBtn:hover{ transform: translateY(-4px); }
 
 .iconImg{
-  height: 380px;
+  height: 400px;
   width: auto;
   object-fit: contain;
 }
@@ -205,7 +205,7 @@ html[data-theme="dark"]  .themeBtn img{ width:132px; }
     gap: 18px;
   }
   .iconBtn{ width: 260px; }
-  .iconImg{ height: 380px; }
+  .iconImg{ height: 450px; }
 }
 
 @media (max-width: 850px){
