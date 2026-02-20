@@ -216,17 +216,6 @@ html[data-theme="dark"]  .themeBtn img{ width:96px; }
   .iconBtn{ width: 280px; }
 }
 
-@keyframes pageSlideOpen{
-  from{
-    opacity:0;
-    transform: translateY(60px) scale(.96);
-  }
-  to{
-    opacity:1;
-    transform: translateY(0) scale(1);
-  }
-}
-
 
 .pageEnvelope{
   width: clamp(220px, 20vw, 320px);
