@@ -47,7 +47,7 @@ html[data-theme="dark"]  body{ background: var(--darkRose); }
   height:auto;
   transition:transform .15s ease;
 }
-.themeBtn:hover img{ transform: translateY(-2px); }
+.themeBtn:hover img{ transform: translateY(-10px); }
 
 html[data-theme="light"] .themeBtn img{ width:200px; }
 html[data-theme="dark"]  .themeBtn img{ width:132px; }
@@ -57,7 +57,7 @@ html[data-theme="dark"]  .themeBtn img{ width:132px; }
   font-size:14px;
   color:#111;
   background: rgba(255,255,255,.70);
-  padding:4px 10px;
+  padding:4px 5px;
   border-radius:999px;
   backdrop-filter: blur(6px);
 }
