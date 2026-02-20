@@ -49,7 +49,6 @@ html[data-theme="dark"]  body{ background: var(--darkRose); }
 }
 .themeBtn:hover img{ transform: translateY(-2px); }
 
-/* sun bigger */
 html[data-theme="light"] .themeBtn img{ width:135px; }
 html[data-theme="dark"]  .themeBtn img{ width:132px; }
 
@@ -73,7 +72,7 @@ html[data-theme="dark"]  .themeBtn img{ width:132px; }
 }
 
 .shell{
-  width:min(1200px, 94vw);
+  width:min(1400px, 94vw);
   position:relative;
   padding-top: 18px;
 }
