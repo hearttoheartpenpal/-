@@ -1,3 +1,4 @@
+// THEME TOGGLE
 const themeBtn = document.getElementById("themeBtn");
 const themeIcon = document.getElementById("themeIcon");
 const themeLabel = document.getElementById("themeLabel");
@@ -9,34 +10,13 @@ function setTheme(theme){
   localStorage.setItem("h2h-theme", theme);
 }
 
+// Load saved theme
 setTheme(localStorage.getItem("h2h-theme") || "light");
 
+// Toggle theme on click
 if(themeBtn){
   themeBtn.addEventListener("click", () => {
-    const cur = document.documentElement.getAttribute("data-theme") || "light";
-    setTheme(cur === "light" ? "dark" : "light");
-  });
-}
-
-
-const aboutBtn = document.getElementById("aboutBtn");
-const rulesBtn = document.getElementById("rulesBtn");
-const contactBtn = document.getElementById("contactBtn");
-
-if(aboutBtn){
-  aboutBtn.addEventListener("click", () => {
-    window.location.href = "./about.html";
-  });
-}
-
-if(rulesBtn){
-  rulesBtn.addEventListener("click", () => {
-    window.location.href = "./rules.html";
-  });
-}
-
-if(contactBtn){
-  contactBtn.addEventListener("click", () => {
-    window.location.href = "./contact.html";
+    const current = document.documentElement.getAttribute("data-theme") || "light";
+    setTheme(current === "light" ? "dark" : "light");
   });
 }
