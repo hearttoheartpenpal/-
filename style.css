@@ -50,8 +50,8 @@ html[data-theme="dark"]  body{ background: var(--darkRose); }
 .themeBtn:hover img{ transform: translateY(-2px); }
 
 /* sun bigger */
-html[data-theme="light"] .themeBtn img{ width:132px; }
-html[data-theme="dark"]  .themeBtn img{ width:96px; }
+html[data-theme="light"] .themeBtn img{ width:135px; }
+html[data-theme="dark"]  .themeBtn img{ width:132px; }
 
 .themeLabel{
   font-weight:800;
