@@ -63,7 +63,7 @@ html[data-theme="light"] .themeBtn img{
 }
 
 .envelope{
-  width: 1500px;
+  width: 2000px;
   margin: 0 auto;
   display: block;
   transform: translateY(-40px);
@@ -87,8 +87,8 @@ html[data-theme="light"] .themeBtn img{
 }
 
 .subtitle{
-  font-weight: 800;
-  font-size: 28px;
+  font-weight: 900;
+  font-size: 36px;
   margin-top: 10px;
 }
 
