@@ -76,8 +76,8 @@ html[data-theme="dark"] body  { background: var(--darkRose); }
 }
 
 .card{
-  width: 1000px;
-  margin: -320px auto 0; /* slightly less overlap so it looks cleaner */
+  width: 1500px;
+  margin: -370px auto 0; /* slightly less overlap so it looks cleaner */
   background: var(--card);
   border-radius: 20px;
   box-shadow: 0 30px 70px rgba(0,0,0,.12);
