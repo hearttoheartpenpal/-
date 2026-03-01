@@ -1,79 +1,115 @@
- <!doctype html>
- <html lang="en" data-theme="light">
- <head>
-   <meta charset="utf-8" />
-   <meta name="viewport" content="width=device-width,initial-scale=1" />
-   <title>Heart to Heart — Penpal Program</title>
- 
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
- 
-   <!-- cache-bust so your changes always show -->
-   <link rel="stylesheet" href="./style.css?v=7" />
-  
- <style>
-    /* Force larger, aligned About/Rules/Contact tiles even if external CSS has competing rules */
-+    .iconRow {
-+      display: flex !important;
-+      justify-content: center !important;
-+      align-items: flex-start !important;
-+      gap: clamp(1.5rem, 4vw, 3rem) !important;
-+      flex-wrap: wrap !important;
-+    }
-+
-+    .iconBtn {
-+      display: flex !important;
-+      flex-direction: column !important;
-+      align-items: center !important;
-+      justify-content: flex-start !important;
-+      width: clamp(210px, 24vw, 270px) !important;
-+      min-height: clamp(250px, 31vw, 320px) !important;
-+      background: transparent !important;
-+      border: 0 !important;
-+      padding: 0 !important;
-+    }
-+
-+    .iconImg,
-+    #aboutBtn .iconImg,
-+    #rulesBtn .iconImg,
-+    #contactBtn .iconImg {
-+      width: clamp(180px, 20vw, 235px) !important;
-+      max-width: none !important;
-+      height: auto !important;
-+      display: block !important;
-+      object-fit: contain !important;
-+      margin-inline: auto !important;
-+    }
-+
-+    .iconLabel {
-+      margin-top: 0.9rem !important;
-+      width: 100% !important;
-+      text-align: center !important;
-+    }
-+  </style>
- </head>
- 
- <body>
-   <!-- TOP LEFT: theme toggle -->
-   <div class="themeWrap">
-     <button class="themeBtn" id="themeBtn" type="button" aria-label="Toggle theme">
-       <img id="themeIcon" src="./assets/sun.png" alt="Theme icon">
-     </button>
-     <div class="themeLabel" id="themeLabel">Light</div>
-   </div>
- 
-   <main class="stage">
-     <div class="shell">
-       <img class="envelope" src="./assets/envelope.png" alt="Envelope">
- 
-       <section class="card" aria-label="Heart to Heart home">
-         <h1 class="title">Heart to Heart</h1>
-         <div class="subtitle">—Penpal Program—</div>
- 
-         <div class="iconRow" aria-label="Navigation">
-           <button class="iconBtn" type="button" id="aboutBtn">
-             <img class="iconImg" src="./assets/about.png" alt="About">
-             <div class="iconLabel">About</div>
-           </button>
- 
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Heart to Heart — Penpal Program</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <!-- cache-bust so your changes always show -->
+  <link rel="stylesheet" href="./style.css?v=7" />
+
+  <style>
+    /* ---- LOCKED ICON GRID (About / Rules / Contact) ---- */
+    .iconRow{
+      display:flex !important;
+      justify-content:center !important;
+      align-items:flex-start !important;
+      gap: clamp(1.5rem, 4vw, 3rem) !important;
+      flex-wrap: wrap !important;
+      margin-top: 1.25rem !important;
+    }
+
+    .iconBtn{
+      appearance: none !important;
+      -webkit-appearance: none !important;
+      background: transparent !important;
+      border: 0 !important;
+      padding: 0 !important;
+
+      display:flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: flex-start !important;
+
+      width: clamp(210px, 24vw, 270px) !important;
+      cursor: pointer !important;
+      text-align: center !important;
+    }
+
+    /* This box makes ALL icons the exact same visual size + alignment */
+    .iconBox{
+      width: clamp(190px, 21vw, 245px) !important;
+      height: clamp(190px, 21vw, 245px) !important;
+      display:flex !important;
+      align-items:center !important;
+      justify-content:center !important;
+    }
+
+    .iconImg{
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: contain !important;   /* critical */
+      display:block !important;
+    }
+
+    .iconLabel{
+      margin-top: 0.9rem !important;
+      width: 100% !important;
+      text-align: center !important;
+      font-weight: 700 !important;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- TOP LEFT: theme toggle -->
+  <div class="themeWrap">
+    <button class="themeBtn" id="themeBtn" type="button" aria-label="Toggle theme">
+      <img id="themeIcon" src="./assets/sun.png" alt="Theme icon">
+    </button>
+    <div class="themeLabel" id="themeLabel">Light</div>
+  </div>
+
+  <main class="stage">
+    <div class="shell">
+      <img class="envelope" src="./assets/envelope.png" alt="Envelope">
+
+      <section class="card" aria-label="Heart to Heart home">
+        <h1 class="title">Heart to Heart</h1>
+        <div class="subtitle">—Penpal Program—</div>
+
+        <div class="iconRow" aria-label="Navigation">
+          <button class="iconBtn" type="button" id="aboutBtn">
+            <div class="iconBox">
+              <img class="iconImg" src="./assets/about.png?v=2" alt="About">
+            </div>
+            <div class="iconLabel">About</div>
+          </button>
+
+          <button class="iconBtn" type="button" id="rulesBtn">
+            <div class="iconBox">
+              <img class="iconImg" src="./assets/rules.png?v=2" alt="Rules">
+            </div>
+            <div class="iconLabel">Rules</div>
+          </button>
+
+          <button class="iconBtn" type="button" id="contactBtn">
+            <div class="iconBox">
+              <img class="iconImg" src="./assets/contact.png?v=2" alt="Contact">
+            </div>
+            <div class="iconLabel">Contact</div>
+          </button>
+        </div>
+
+      </section>
+    </div>
+  </main>
+
+  <!-- keep the rest of your scripts below (unchanged) -->
+  <script src="./script.js?v=7"></script>
+</body>
+</html>
