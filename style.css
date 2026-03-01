@@ -109,58 +109,55 @@ html[data-theme="dark"] body {
 
 /* ================= ICON ROW (About, Rules, Contact) ================= */
 
-/* Same look as yours, but now perfectly aligned + same size */
-.iconRow {
+.iconRow{
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: clamp(24px, 5vw, 80px);
+  gap: 80px;
   margin-top: 60px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;          /* <-- STOP wrapping */
 }
 
-.iconBtn {
+.iconBtn{
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: clamp(210px, 24vw, 270px);
+  width: 220px;               /* consistent tile width */
   cursor: pointer;
   transition: transform 0.2s ease;
-
-  /* important so buttons don't inherit weird styles */
   background: transparent;
   border: 0;
   padding: 0;
 }
 
-.iconBtn:hover {
+.iconBtn:hover{
   transform: translateY(-6px);
 }
 
-/* This box forces ALL icons to occupy the same exact space */
-.iconBox {
-  width: clamp(190px, 21vw, 245px);
-  height: clamp(190px, 21vw, 245px);
+/* SAME-SIZE ICON AREA */
+.iconBox{
+  width: 200px;
+  height: 200px;              /* reduce/standardize height */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.iconImg {
+.iconImg{
   width: 100%;
   height: 100%;
   object-fit: contain;
   display: block;
 }
 
-.iconLabel {
+/* bring label closer */
+.iconLabel{
+  margin-top: 10px;           /* smaller gap */
   font-size: 18px;
   font-weight: 800;
   color: #222;
-  margin-top: 10px;
   text-align: center;
 }
-
 /* ================= BUTTON ROW ================= */
 
 .buttonRow {
