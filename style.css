@@ -76,7 +76,7 @@ html[data-theme="dark"] body  { background: var(--darkRose); }
 }
 
 .card{
-  width: 1000px;
+  width: 1090px;
   margin: -330px auto 0; /* slightly less overlap so it looks cleaner */
   background: var(--card);
   border-radius: 20px;
@@ -88,14 +88,14 @@ html[data-theme="dark"] body  { background: var(--darkRose); }
 /* ================= TITLE ================= */
 
 .title{
-  font-size: 110px;
+  font-size: 140px;
   font-weight: 800;
   color: var(--red);
   margin: 0;
 }
 
 .subtitle{
-  font-size: 28px;
+  font-size: 34px;
   font-weight: 800;
   margin-top: 12px;
   color: #222;
