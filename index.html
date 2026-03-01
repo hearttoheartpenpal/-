@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="./style.css?v=7" />
 
   <style>
-    /* ---- LOCKED ICON GRID (About / Rules / Contact) ---- */
+    /* ---- ICON GRID (About / Rules / Contact) ---- */
     .iconRow{
       display:flex !important;
       justify-content:center !important;
@@ -40,7 +40,6 @@
       text-align: center !important;
     }
 
-    /* This box makes ALL icons the exact same visual size + alignment */
     .iconBox{
       width: clamp(190px, 21vw, 245px) !important;
       height: clamp(190px, 21vw, 245px) !important;
@@ -52,7 +51,7 @@
     .iconImg{
       width: 100% !important;
       height: 100% !important;
-      object-fit: contain !important;   /* critical */
+      object-fit: contain !important;
       display:block !important;
     }
 
@@ -64,65 +63,92 @@
     }
   </style>
 </head>
-<!-- ================= INFO PANELS ================= -->
 
-<div class="panelOverlay" id="aboutPanel" aria-hidden="true">
-  <div class="panelCard" role="dialog" aria-modal="true" aria-label="About panel">
-    <button class="backBtn" type="button" data-close-panel>
-      ← Back
-    </button>
-
-    <div class="panelTop">
-      <img class="panelIcon" src="./assets/about.png" alt="">
-      <h2 class="panelTitle">About</h2>
-    </div>
-
-    <div class="panelBody">
-      <p><strong>Heart to Heart</strong> is a penpal program connecting students and seniors to share stories, encouragement, and friendship.</p>
-      <p>Add your About text here (mission, how it works, who it’s for, etc.).</p>
-    </div>
-  </div>
-</div>
-
-<div class="panelOverlay" id="rulesPanel" aria-hidden="true">
-  <div class="panelCard" role="dialog" aria-modal="true" aria-label="Rules panel">
-    <button class="backBtn" type="button" data-close-panel>
-      ← Back
-    </button>
-
-    <div class="panelTop">
-      <img class="panelIcon" src="./assets/rules.png" alt="">
-      <h2 class="panelTitle">Rules</h2>
-    </div>
-
-    <div class="panelBody">
-      <ul>
-        <li>Be kind and respectful.</li>
-        <li>No sharing private personal information.</li>
-        <li>Keep letters appropriate and positive.</li>
-        <li>Follow program guidelines for mailing/delivery.</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<div class="panelOverlay" id="contactPanel" aria-hidden="true">
-  <div class="panelCard" role="dialog" aria-modal="true" aria-label="Contact panel">
-   <button class="backBtn" type="button" data-close-panel>← Back</button>
-
-    <div class="panelTop">
-      <img class="panelIcon" src="./assets/contact.png" alt="">
-      <h2 class="panelTitle">Contact</h2>
-    </div>
-
-    <div class="panelBody">
-      <p>Email: <strong>yourname@example.com</strong></p>
-      <p>Instagram: <strong>@yourhandle</strong></p>
-      <p>Put whatever contact info you want here.</p>
-    </div>
-  </div>
-</div>
 <body>
+
+  <!-- ================= INFO PANELS ================= -->
+
+  <div class="panelOverlay" id="aboutPanel" aria-hidden="true">
+    <div class="panelCard" role="dialog" aria-modal="true" aria-label="About panel">
+      <button class="backBtn" type="button" data-close-panel>← Back</button>
+
+      <div class="panelTop">
+        <img class="panelIcon" src="./assets/about.png" alt="">
+        <h2 class="panelTitle">About</h2>
+      </div>
+
+      <div class="panelBody">
+        <p><strong>Heart to Heart</strong> is a penpal program connecting students and seniors to share stories, encouragement, and friendship.</p>
+        <p>Add your About text here (mission, how it works, who it’s for, etc.).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="panelOverlay" id="rulesPanel" aria-hidden="true">
+    <div class="panelCard" role="dialog" aria-modal="true" aria-label="Rules panel">
+      <button class="backBtn" type="button" data-close-panel>← Back</button>
+
+      <div class="panelTop">
+        <img class="panelIcon" src="./assets/rules.png" alt="">
+        <h2 class="panelTitle">Rules</h2>
+      </div>
+
+      <div class="panelBody">
+        <ul>
+          <li>Be kind and respectful.</li>
+          <li>No sharing private personal information.</li>
+          <li>Keep letters appropriate and positive.</li>
+          <li>Follow program guidelines for mailing/delivery.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="panelOverlay" id="contactPanel" aria-hidden="true">
+    <div class="panelCard" role="dialog" aria-modal="true" aria-label="Contact panel">
+      <button class="backBtn" type="button" data-close-panel>← Back</button>
+
+      <div class="panelTop">
+        <img class="panelIcon" src="./assets/contact.png" alt="">
+        <h2 class="panelTitle">Contact</h2>
+      </div>
+
+      <div class="panelBody">
+        <p>Email: <strong>yourname@example.com</strong></p>
+        <p>Instagram: <strong>@yourhandle</strong></p>
+        <p>Put whatever contact info you want here.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEW: Games panel -->
+  <div class="panelOverlay" id="gamesPanel" aria-hidden="true">
+    <div class="panelCard" role="dialog" aria-modal="true" aria-label="Games panel">
+      <button class="backBtn" type="button" data-close-panel>← Back</button>
+
+      <div class="panelTop">
+        <img class="panelIcon" src="./assets/games.png" alt="">
+        <h2 class="panelTitle">Games</h2>
+      </div>
+
+      <div class="panelBody">
+        <p>Pick a game:</p>
+
+        <div class="buttonRow" style="margin-top:16px; gap:16px; flex-wrap:wrap;">
+          <button class="mainBtn" type="button" id="tttBtn" style="width:240px;height:90px;font-size:24px;">
+            Tic-Tac-Toe
+          </button>
+
+          <button class="mainBtn" type="button" id="memoryBtn" style="width:240px;height:90px;font-size:24px;">
+            Memory
+          </button>
+        </div>
+
+        <p style="margin-top:18px; font-weight:700;">(We can add the actual games next.)</p>
+      </div>
+    </div>
+  </div>
+
   <!-- TOP LEFT: theme toggle -->
   <div class="themeWrap">
     <button class="themeBtn" id="themeBtn" type="button" aria-label="Toggle theme">
@@ -139,87 +165,113 @@
         <h1 class="title">Heart to Heart</h1>
         <div class="subtitle">—Penpal Program—</div>
 
-<div class="iconRow" aria-label="Navigation">
-  <button class="iconBtn" type="button" id="aboutBtn">
-    <div class="iconBox">
-      <img class="iconImg" src="./assets/about.png?v=20260228" alt="About">
-    </div>
-    <div class="iconLabel">About</div>
-  </button>
+        <div class="iconRow" aria-label="Navigation">
+          <button class="iconBtn" type="button" id="aboutBtn">
+            <div class="iconBox">
+              <img class="iconImg" src="./assets/about.png?v=20260228" alt="About">
+            </div>
+            <div class="iconLabel">About</div>
+          </button>
 
-  <button class="iconBtn" type="button" id="rulesBtn">
-    <div class="iconBox">
-      <img class="iconImg" src="./assets/rules.png?v=20260228" alt="Rules">
-    </div>
-    <div class="iconLabel">Rules</div>
-  </button>
+          <button class="iconBtn" type="button" id="rulesBtn">
+            <div class="iconBox">
+              <img class="iconImg" src="./assets/rules.png?v=20260228" alt="Rules">
+            </div>
+            <div class="iconLabel">Rules</div>
+          </button>
 
-  <button class="iconBtn" type="button" id="contactBtn">
-    <div class="iconBox">
-      <img class="iconImg" src="./assets/contact.png?v=20260228" alt="Contact">
-    </div>
-    <div class="iconLabel">Contact</div>
-  </button>
-</div>
-      
+          <button class="iconBtn" type="button" id="contactBtn">
+            <div class="iconBox">
+              <img class="iconImg" src="./assets/contact.png?v=20260228" alt="Contact">
+            </div>
+            <div class="iconLabel">Contact</div>
+          </button>
+        </div>
+
       </section>
     </div>
   </main>
 
-  <!-- keep the rest of your scripts below (unchanged) -->
+  <!-- Bottom-right Games button (uses your existing CSS classes) -->
+  <div class="gamesFixed">
+    <button class="gamesBtn" id="gamesBtn" type="button" aria-label="Open games">
+      <img class="gamesImg" src="./assets/games.png" alt="Games">
+    </button>
+    <div class="gamesLabel">Games</div>
+  </div>
+
+  <!-- keep your existing theme script exactly as-is -->
   <script src="./script.js?v=7"></script>
+
+  <!-- panels script (added, does not modify script.js) -->
   <script>
-  // ---- Panels (no changes to your theme script needed) ----
+    const panels = {
+      aboutBtn: document.getElementById("aboutPanel"),
+      rulesBtn: document.getElementById("rulesPanel"),
+      contactBtn: document.getElementById("contactPanel"),
+      gamesBtn: document.getElementById("gamesPanel"),
+    };
 
-  const panels = {
-    aboutBtn: document.getElementById("aboutPanel"),
-    rulesBtn: document.getElementById("rulesPanel"),
-    contactBtn: document.getElementById("contactPanel"),
-  };
+    function openPanel(panelEl){
+      if (!panelEl) return;
+      panelEl.classList.add("is-open");
+      panelEl.setAttribute("aria-hidden", "false");
+      document.body.classList.add("noScroll");
+    }
 
-  function openPanel(panelEl){
-    if (!panelEl) return;
-    panelEl.classList.add("is-open");
-    panelEl.setAttribute("aria-hidden", "false");
-    document.body.classList.add("noScroll");
-  }
+    function closePanel(panelEl){
+      if (!panelEl) return;
+      panelEl.classList.remove("is-open");
+      panelEl.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("noScroll");
+    }
 
-  function closePanel(panelEl){
-    if (!panelEl) return;
-    panelEl.classList.remove("is-open");
-    panelEl.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("noScroll");
-  }
-
-  // Click icon -> open the matching panel
-  ["aboutBtn","rulesBtn","contactBtn"].forEach((btnId) => {
-    const btn = document.getElementById(btnId);
-    const panel = panels[btnId];
-    if (!btn || !panel) return;
-    btn.addEventListener("click", () => openPanel(panel));
-  });
-
-  // Back buttons + clicking outside the card closes
-  document.querySelectorAll("[data-close-panel]").forEach((b) => {
-    b.addEventListener("click", () => {
-      const overlay = b.closest(".panelOverlay");
-      closePanel(overlay);
+    // open panels
+    ["aboutBtn","rulesBtn","contactBtn"].forEach((btnId) => {
+      const btn = document.getElementById(btnId);
+      const panel = panels[btnId];
+      if (!btn || !panel) return;
+      btn.addEventListener("click", () => openPanel(panel));
     });
-  });
 
- document.querySelectorAll("[data-close-panel]").forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    const overlay = btn.closest(".panelOverlay");
-    if (overlay) closePanel(overlay);
-  });
-});
-  // Esc key closes any open panel
-  window.addEventListener("keydown", (e) => {
-    if (e.key !== "Escape") return;
-    document.querySelectorAll(".panelOverlay.is-open").forEach(closePanel);
-  });
-  <script>
+    // games button opens games panel
+    const gamesBtn = document.getElementById("gamesBtn");
+    if (gamesBtn && panels.gamesBtn) {
+      gamesBtn.addEventListener("click", () => openPanel(panels.gamesBtn));
+    }
+
+    // close handler for ALL back buttons
+    document.addEventListener("click", (e) => {
+      const closeBtn = e.target.closest("[data-close-panel]");
+      if (!closeBtn) return;
+
+      e.preventDefault();
+      e.stopPropagation();
+
+      const overlay = closeBtn.closest(".panelOverlay");
+      if (overlay) closePanel(overlay);
+    });
+
+    // click outside card closes
+    document.querySelectorAll(".panelOverlay").forEach((overlay) => {
+      overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) closePanel(overlay);
+      });
+    });
+
+    // Esc closes any open panel
+    window.addEventListener("keydown", (e) => {
+      if (e.key !== "Escape") return;
+      document.querySelectorAll(".panelOverlay.is-open").forEach(closePanel);
+    });
+
+    // temporary actions for game buttons
+    const tttBtn = document.getElementById("tttBtn");
+    const memoryBtn = document.getElementById("memoryBtn");
+
+    if (tttBtn) tttBtn.addEventListener("click", () => alert("Tic-Tac-Toe coming next!"));
+    if (memoryBtn) memoryBtn.addEventListener("click", () => alert("Memory game coming next!"));
   </script>
+
 </body>
 </html>
