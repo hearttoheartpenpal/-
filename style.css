@@ -331,6 +331,19 @@ html[data-theme="dark"] .panelCard {
   line-height: 1.6;
   margin-top: 10px;
 }
+/* --- FIX: Contact back button click area --- */
+#contactPanel .panelCard{
+  position: relative;     /* should already be, but force it */
+  padding-top: 70px;      /* creates space so nothing overlaps the back button */
+}
+
+#contactPanel .backBtn{
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;          /* sits above everything */
+  width: auto;
+}
 
 /* back arrow button */
 .backBtn {
