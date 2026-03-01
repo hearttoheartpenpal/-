@@ -69,7 +69,7 @@ html[data-theme="dark"] body  { background: var(--darkRose); }
 
 /* Smaller top envelope (you asked) */
 .envelope{
-  width: 650px;          /* was 750 */
+  width: 700px;          /* was 750 */
   margin: 0 auto;
   display: block;
   height: auto;
@@ -107,8 +107,8 @@ html[data-theme="dark"] body  { background: var(--darkRose); }
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 15px;          /* roomy, like your original */
-  margin-top: 40px;
+  gap: 20px;          /* roomy, like your original */
+  margin-top: 30px;
   flex-wrap: wrap;  /* keep 3 in one row on desktop */
 }
 
@@ -160,8 +160,8 @@ html[data-theme="dark"] body  { background: var(--darkRose); }
 .buttonRow{
   display: flex;
   justify-content: center;
-  gap: 50px;
-  margin-top: 80px;
+  gap: 10px;
+  margin-top: 30px;
 }
 
 .mainBtn{
