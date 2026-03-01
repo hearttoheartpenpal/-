@@ -107,7 +107,7 @@ html[data-theme="dark"] body  { background: var(--darkRose); }
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 20px;          /* roomy, like your original */
+  gap: 15px;          /* roomy, like your original */
   margin-top: 60px;
   flex-wrap: nowrap;  /* keep 3 in one row on desktop */
 }
