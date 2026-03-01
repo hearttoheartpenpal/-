@@ -148,7 +148,7 @@ html[data-theme="dark"] body  { background: var(--darkRose); }
 #contactBtn .iconImg{ transform: scale(0.90); }  /* Contact a bit bigger */
 
 .iconLabel{
-  margin-top: 2px;   /* smaller gap between icon and text */
+  margin-top: 0px;   /* smaller gap between icon and text */
   font-size: 28px;
   font-weight: 800;
   color: #222;
