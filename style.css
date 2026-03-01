@@ -154,9 +154,9 @@ html[data-theme="dark"] body  { background: var(--darkRose); }
 }
 
 /* Fine-tune individual icon proportions (your request) */
-#aboutBtn .iconImg{   transform: scale(0.80); }  /* About smaller */
-#rulesBtn .iconImg{   transform: scale(0.80); }  /* Rules perfect */
-#contactBtn .iconImg{ transform: scale(0.90); }  /* Contact a bit bigger */
+#aboutBtn .iconImg{   transform: scale(0.90); }  /* About smaller */
+#rulesBtn .iconImg{   transform: scale(0.90); }  /* Rules perfect */
+#contactBtn .iconImg{ transform: scale(1.00); }  /* Contact a bit bigger */
 
 .iconLabel{
   margin-top: 2px;   /* smaller gap between icon and text */
