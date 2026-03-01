@@ -313,11 +313,11 @@ html[data-theme="dark"] .panelCard {
 /* fine-tune panel icon proportions */
 
 #rulesPanel .panelIcon {
-  transform: scale(1.80);
+  transform: scale(1.90);
 }
 
 #contactPanel .panelIcon {
-  transform: scale(2.10);
+  transform: scale(2.30);
 }
 
 .panelTitle {
