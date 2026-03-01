@@ -145,7 +145,7 @@ html[data-theme="dark"] body  { background: var(--darkRose); }
 /* Fine-tune individual icon proportions (your request) */
 #aboutBtn .iconImg{   transform: scale(0.52); }  /* About smaller */
 #rulesBtn .iconImg{   transform: scale(0.80); }  /* Rules perfect */
-#contactBtn .iconImg{ transform: scale(0.85); }  /* Contact a bit bigger */
+#contactBtn .iconImg{ transform: scale(0.90); }  /* Contact a bit bigger */
 
 .iconLabel{
   margin-top: 10px;   /* smaller gap between icon and text */
