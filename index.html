@@ -208,12 +208,13 @@
     });
   });
 
-  document.querySelectorAll(".panelOverlay").forEach((overlay) => {
-    overlay.addEventListener("click", (e) => {
-      if (e.target === overlay) closePanel(overlay);
-    });
+ document.querySelectorAll("[data-close-panel]").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const overlay = btn.closest(".panelOverlay");
+    if (overlay) closePanel(overlay);
   });
-
+});
   // Esc key closes any open panel
   window.addEventListener("keydown", (e) => {
     if (e.key !== "Escape") return;
