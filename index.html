@@ -161,32 +161,7 @@
     <div class="iconLabel">Contact</div>
   </button>
 </div>
-        <div class="panelOverlay" id="gamesPanel" aria-hidden="true">
-  <div class="panelCard" role="dialog" aria-modal="true" aria-label="Games panel">
-    <button class="backBtn" type="button" data-close-panel>← Back</button>
-
-    <div class="panelTop">
-      <img class="panelIcon" src="./assets/games.png" alt="">
-      <h2 class="panelTitle">Games</h2>
-    </div>
-
-    <div class="panelBody">
-      <p>Pick a game:</p>
-
-      <div class="buttonRow" style="margin-top:16px; gap:16px; flex-wrap:wrap;">
-        <button class="mainBtn" type="button" id="tttBtn" style="width:240px;height:90px;font-size:24px;">
-          Tic-Tac-Toe
-        </button>
-
-        <button class="mainBtn" type="button" id="memoryBtn" style="width:240px;height:90px;font-size:24px;">
-          Memory
-        </button>
-      </div>
-
-      <p style="margin-top:18px; font-weight:700;">(We can add more games later.)</p>
-    </div>
-  </div>
-</div>
+      
       </section>
     </div>
   </main>
@@ -244,28 +219,7 @@
     if (e.key !== "Escape") return;
     document.querySelectorAll(".panelOverlay.is-open").forEach(closePanel);
   });
-    <div class="gamesFixed">
-  <button class="gamesBtn" id="gamesBtn" type="button" aria-label="Open games">
-    <img class="gamesImg" src="./assets/games.png" alt="Games">
-  </button>
-  <div class="gamesLabel">Games</div>
-</div>
-</script>
   <script>
-  // --- Games panel open ---
-  const gamesBtn = document.getElementById("gamesBtn");
-  const gamesPanel = document.getElementById("gamesPanel");
-
-  if (gamesBtn && gamesPanel) {
-    gamesBtn.addEventListener("click", () => openPanel(gamesPanel));
-  }
-
-  // Temporary: game buttons just show an alert for now
-  const tttBtn = document.getElementById("tttBtn");
-  const memoryBtn = document.getElementById("memoryBtn");
-
-  if (tttBtn) tttBtn.addEventListener("click", () => alert("Tic-Tac-Toe coming next!"));
-  if (memoryBtn) memoryBtn.addEventListener("click", () => alert("Memory game coming next!"));
-</script>
+  </script>
 </body>
 </html>
